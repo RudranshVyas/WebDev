@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Form Validation</title>
+    <link rel="stylesheet" href="style1.css">
+    
+    <script type="text/javascript" src="prac6.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <h2>Student Registration Form</h2>
+    </div>
+    <form class="form" id="form">
+        <div class="form-control" >
+            <label>First Name</label>
+            <input type="text" placeholder="First name" id="fname" value="">
+        </div>
+        <div class="form-control" >
+            <label>Last Name</label>
+            <input type="text" placeholder="Last name" id="lname">
+        </div>
+        <div class="form-control">
+            <label>Email</label>
+            <input type="email" placeholder="DDCCCDDD@nirmauni.ac.in" id="uemail" onchange="ValidateEmail();">
+        </div>
+        <div class="form-control">
+            <label>Password</label>
+            <input type="password" placeholder="Password" id="password">
+        </div>
+        <div class="form-control">
+            <label>Password-Check</label>
+            <input type="password" placeholder="Password-Check" id="password2">
+        </div>
+        <button onclick="validateForm()">Submit</button>
+    </form>
+</div>
+</body>
+</html>

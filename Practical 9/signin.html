@@ -1,0 +1,125 @@
+
+<html>
+<head>
+<title>Online Cloth Shopping</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style type="text/css">
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}	
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+<!--
+.style8 {font-size: 24px}
+.style9 {font-size: 95%; font-weight: bold; color: #003300; font-famoily: Verdana, Arial, Helvetica, sans-serif; }
+-->
+</style>
+<script language="javascript">
+  function registration()
+	{
+
+		var name= document.getElementById("t1").value;
+		var pass= document.getElementById("t2").value;
+		if(name=='')
+		{
+			alert('Please enter your User name');
+		}
+		else if(pass=='')
+		{
+			alert('Pasasword Cant Empty');
+		}
+		else if(name="user" && pass=="user")
+		{				                            
+               alert('Login Successfully Welcomee to Shopping Zone');
+			   clearFunc();
+			   // Redirecting to other page or webste code. 
+			  
+		}
+		else
+		{
+				alert('Invalid User Name or Password');
+				clearFunc();
+		}
+	
+	}
+	function clearFunc()
+	{
+		document.getElementById("t1").value="";
+		document.getElementById("t2").value="";
+		
+	}
+
+  </script>
+</head>
+<body>
+<div id="wrapper">
+  
+  <div id="title">
+    <h1><span style="color: #008000;">CLOTH SHOPPING</span></h1>
+  </div>
+  <div id="header"><img src="img/Header1.JPG" alt="header" width="770" height="200" /></div>
+<div class="container">
+    <ul id="navCircle">
+      <li><a class="active" href="index.html">Home</a></li>
+      
+      <li><a href="Category.html">Category</a></li>
+      
+
+ <li><a href="register.html">Register</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+	  <li><a href="signin.html" class="active">Sign In!</a></li>
+    </ul>
+  </div>
+  <div id="content">
+   <div id="main">
+	<div class="h-tag">
+	<hr>
+	<h2>Create Your Account</h2>
+	<hr>
+	</div>
+	<!-- create account div -->
+	<div class="login">
+	<table cellspacing="2" align="center" cellpadding="8" border="0">
+	<tr>
+			<td>User Name
+			<td><input type="text" placeholder="Enter Username" name="uname" id="t1"  required >
+		</tr>
+		<tr>
+			<td>User Password
+			<td><input type="password" placeholder="Enter Password" name="psw" id="t2"  required >
+		</tr>
+	<tr>
+	
+	<td colspan=2 align=center>
+	<input type="button" value="Login & Start" onclick="registration()" class="button button1" /></td>
+	</tr>
+	</table>
+	</div>
+	<!-- create account box ending here.. -->
+	</div>
+	
+  </div>
+
+  <div style="clear:both;"></div>
+ <div id="footer">  &copy; 2021Online Cloth Shopping| Design by Rudransh</div>
+</div>
+</body>
+</html>

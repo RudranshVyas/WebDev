@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript function to merge two arrays and removes all duplicates elements.</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+
+        body {
+            background-color: cyan;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            margin: 50px 20px;
+            margin-top: 20px;
+            width: 80vh;
+            height: 26vh;
+            background: #F2F2F2;
+            border: 5px solid #8e44ad;
+            box-shadow: 1px 1px 2px #fff inset,
+                -1px -1px 2px #fff inset;
+            border-radius: 3px/6px;
+        }
+
+        input[type = button] {
+            background-color: #8e44ad;
+            border: 2px solid #8e44ad;
+            border-radius: 4px;
+            margin-left: 150px;
+            color: #fff;
+            display: block;
+            align-items:center;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            padding: 10px;
+            width: 40%;
+        }
+        #b1{
+            margin-left: 130px;
+        }
+        b{
+            margin-left: 50px;
+        }
+       
+    </style>
+    <script>
+
+        function Union() {
+            var arr1 = document.getElementById("arr1").value;
+            var arr2 = document.getElementById("arr2").value;
+
+
+            var comarr = (arr1.split(" ")).concat(arr2.split(" "));
+
+            var res = [];
+            for (var i = 0; i < comarr.length; i++) {
+                var flag = true;
+                for (var j = 0; j < res.length; j++) {
+                    if (comarr[i] == res[j]) {
+                        flag = false;
+                        break;
+                    }
+                }
+
+                if (flag == true)
+                    res.push(comarr[i]);
+
+            }
+            document.getElementById("output2").value = res;
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <b>Enter 1<sup>st</sup> Array:</b> &nbsp; <input type="text" id="arr1"
+            placeholder="Array1"><br><br>
+        <b>Enter 2<sup>nd</sup> Array: </b><input type="text" id="arr2" placeholder="Array2"><br> &nbsp;&nbsp;
+        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<input type="button" name="button"
+            onclick="Union()" value="Find Union">
+        <p><b id="b1">Answer is:&emsp;</b><input type="text" id="output2" value="" placeholder="Answer"></p>
+    </div>
+
+
+</body>
+
+</html>

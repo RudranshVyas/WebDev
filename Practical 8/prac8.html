@@ -1,0 +1,212 @@
+<html>
+
+<head>
+    <title>Practical 8</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: cyan;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #display {
+            position: absolute;
+            margin: 30px;
+            margin-top: 20px;
+        }
+
+        #right {
+            background-color: #101820FF;
+            width: 100%;
+            height: 580px;
+            color: white;
+            margin-left: 0%;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 20px 40px;
+        }
+
+        .header h1 {
+            margin: 10px;
+        }
+
+        .form {
+            padding: 30px 40px;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        .form-control label {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .form-control input {
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-family: inherit;
+            font-size: 14px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .form-control textarea {
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-family: inherit;
+            font-size: 14px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .form-control select {
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-family: inherit;
+            font-size: 14px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        input[type=reset] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=reset]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-app="ngApp" ng-controller="MyCntrl">
+        <div>
+            <form action="" method="POST" class="form">
+                <legend>
+                    <h1 style="background-color:yellow; border-radius: 4px; padding: 10px;">STUDENT REGISTRATION FORM</h1>
+                </legend>
+                <div class="form-control">
+                    <label><b>First Name: </b></label><input type="text" ng-model="firstname"
+                        placeholder="First name" />
+                </div>
+                <div class="form-control">
+                    <label><b>Last Name: </b></label><input type="text" ng-model="lastname" placeholder="Last name" />
+                </div>
+                <div class="form-control">
+                    <label><b>Date of Birth: </b></label><input type="date" ng-model="dob" />
+                </div>
+                <label><b>Gender: </b></label>
+                <input type="radio" ng-model="gender" value="Male" name="gender" /><label>Male</label>
+                <input type="radio" ng-model="gender" value="Female" name="gender" /><label>Female</label><br><br>
+                <div class="form-control">
+                    <label><b>Email: </b></label><input type="email" ng-model="email" value="email"
+                        placeholder="Email" />
+                </div>
+                <div class="form-control">
+                    <label><b>Semester: </b></label><input type="text" ng-model="Semester" placeholder="Semester" />
+                </div>
+                <div class="form-control">
+                    <label><b>Phone number: </b></label><input type="text" value="mobile" ng-model="mobile"
+                        placeholder="Phone number" />
+                </div>
+                <div class="form-control">
+                    <label><b>PERCENTAGE: </b></label><br><br>
+                    <b>10<sup>th</sup></b> <input type="number" value="ten" ng-model="ten"
+                        placeholder="Class 10" />
+                    <br>
+                    <b>12<sup>th</sup></b> <input type="number" value="twelve" ng-model="twelve"
+                    placeholder="Class 12" />
+                </div>
+                <div class="form-control">
+                    <label><b>Address: </b></label><textarea id="address" ng-model="address"
+                        placeholder="Address"></textarea>
+                </div>
+                <div class="form-control">
+                    <label><b>Institute: </b></label>
+                    <select name="institute" ng-model="institute">
+                        <option value="Institute of Technology" selected>Institute of Technology</option>
+                        <option value="Institute of Management">Institute of Management</option>
+                        <option value="Faculty of Doctoral Study and Research">Faculty of Doctoral Study and Research
+                        </option>
+                        <option value="Institute of Pharmacy">Institute of Pharmacy</option>
+                        <option value="Institute of Science">Institute of Science</option>
+                        <option value="Institute of Law">Institute of Law</option>
+                        <option value="Institute of Architecture and Planning">Institute of Architecture and Planning
+                        </option>
+                        <option value="Institute of Commerce">Institute of Commerce</option>
+                        <option value="Institute of Design">Institute of Design</option>
+                    </select>
+                </div>
+                <input type="submit" value="Submit"><br><br>
+                <input type="reset" value="Reset">
+            </form>
+            <div id="right">
+                <div id="display">
+                    <h2>Registration Information Preview:</h2>
+                    <b>Name(In capital): &nbsp;&nbsp;</b><span>{{firstname+" "+lastname | uppercase}}</span><br><br>
+                    <b>Name(in small): &nbsp;&nbsp;</b><span>{{firstname+" "+lastname | lowercase}}</span><br><br>
+                    <b>Semester: &nbsp;&nbsp;</b><span>{{Semester}}</span><br><br>
+                    <b>E-mail:&nbsp;&nbsp; </b><span>{{email}}</span><br><br>
+                    <b>Mobile No.: &nbsp;&nbsp;</b><span>{{mobile}}</span><br><br>
+                    <b>10<sup>th</sup> percentage: &nbsp;&nbsp;</b><span>{{ten | number:2}}</span><br><br>
+                    <b>12<sup>th</sup> percentage: &nbsp;&nbsp;</b><span>{{twelve | number:2}}</span><br><br>
+                    <b>Gender: &nbsp;&nbsp;</b><span>{{gender}}</span><br><br>
+                    <b>Date: &nbsp;&nbsp;</b><span>{{dob| date: 'dd/MM/yyyy'}}</span><br><br>
+                    <b>Address:&nbsp;&nbsp;</b><span>{{address}}</span><br><br>
+                    <b>Institute:&nbsp;&nbsp;</b><span>{{institute}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = angular.module('ngApp', []);
+        app.controller('MyCntrl', function ($scope) {
+            $scope.institute = "Not Selected";
+        });
+    </script>
+</body>
+
+</html>
